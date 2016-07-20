@@ -1,0 +1,125 @@
+<ion-card class="survey">
+  <ion-card-content>
+	<form [ngFormModel]="surveyForm" (submit)="surveySubmit(surveyForm.value, $event)">
+
+
+		<ion-item class="req">
+			<ion-label stacked>First Name</ion-label>
+			<ion-input type="text" ngControl="qrFirstName" [(ngModel)]="surveyForm.qrFirstName"></ion-input>
+		</ion-item>
+
+		<ion-item class="req">
+			<ion-label stacked>Last Name</ion-label>
+			<ion-input type="text" ngControl="qrLastName" [(ngModel)]="surveyForm.qrLastName"></ion-input>
+		</ion-item>
+
+		<ion-item class="req">
+			<ion-label stacked>Company</ion-label>
+			<ion-input type="text" ngControl="qrCompany" [(ngModel)]="surveyForm.qrCompany"></ion-input>
+		</ion-item>
+
+		<ion-item class="req">
+			<ion-label stacked>Email</ion-label>
+			<ion-input type="email" ngControl="qrEmail" [(ngModel)]="surveyForm.qrEmail"></ion-input>
+		</ion-item>
+
+		<ion-item class="req">
+			<ion-label stacked>Phone</ion-label>
+			<ion-input type="tel" ngControl="qrPhone" [(ngModel)]="surveyForm.qrPhone"></ion-input>
+		</ion-item>
+
+		<ion-item class="req">
+		    <ion-label stacked>What solutions are you interested in?</ion-label>
+		    <ion-select ngControl="qrSolutions" [(ngModel)]="surveyForm.qrSolutions" multiple="true">
+		      <ion-option value="qrSolutions_1">Solution 1</ion-option>
+		      <ion-option value="qrSolutions_2">Solution 2</ion-option>
+		      <ion-option value="qrSolutions_3">Solution 3</ion-option>
+		      <ion-option value="qrSolutions_4">Solution 4</ion-option>
+		      <ion-option value="qrSolutions_5">Solution 5</ion-option>
+		      <ion-option value="qrSolutions_6">Solution 6</ion-option>
+		    </ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Notes</ion-label>
+			<ion-input type="text" ngControl="qrNotes" [(ngModel)]="surveyForm.qrNotes"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Phone</ion-label>
+			<ion-input type="tel" [(ngModel)]="form.qrPhone"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>City</ion-label>
+			<ion-input type="text" [(ngModel)]="form.qrCity"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Industry</ion-label>
+			<ion-input type="text" [(ngModel)]="form.qrIndustry"></ion-input>
+		</ion-item>
+
+		<ion-item class="req">
+		    <ion-label stacked>What is your role with your company’s training programs?</ion-label>
+		    <ion-select ngControl="qrRole" [(ngModel)]="form.qrRole[0]">
+		      <ion-option value="qrRole_1">Decision maker</ion-option>
+		      <ion-option value="qrRole_2">Influencer</ion-option>
+		      <ion-option value="qrRole_3">Recommender</ion-option>
+		      <ion-option value="qrRole_4">User</ion-option>
+		      <ion-option value="qrRole_5">None</ion-option>
+		    </ion-select>
+		</ion-item>
+
+		<ion-item class="req">
+		    <ion-label stacked>How does your company deliver their training?</ion-label>
+		    <ion-select ngControl="qrDeliver" [(ngModel)]="form.qrDeliver[0]">
+		      <ion-option value="qrDeliver_1">In-person</ion-option>
+		      <ion-option value="qrDeliver_2">Online</ion-option>
+		      <ion-option value="qrDeliver_4">Both</ion-option>
+		      <ion-option value="qrDeliver_3">Neither</ion-option>		      
+		    </ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>How do you measure success in your learning environment?</ion-label>
+			<ion-textarea [(ngModel)]="form.qrSuccess"></ion-textarea>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Current training/learning resources?</ion-label>
+			<ion-textarea [(ngModel)]="form.qrTraining"></ion-textarea>
+		</ion-item>
+
+		<ion-item class="req">
+		    <ion-label stacked>What product or service are you interested in learning more about?</ion-label>
+		    <ion-select ngControl="qrService" [(ngModel)]="form.qrService[0]">
+		      <ion-option value="qrService_1">Product 1</ion-option>
+		      <ion-option value="qrService_2">Product 2</ion-option>
+		      <ion-option value="qrService_3">Product 3</ion-option>	
+		      <ion-option value="qrService_4">Product 4</ion-option>	      
+		      <ion-option value="qrService_5">Product 5</ion-option>
+		      <ion-option value="qrService_11">Product 6</ion-option>
+		      <ion-option value="qrService_6">Product 7</ion-option>
+		      <ion-option value="qrService_7">Product 8</ion-option>
+		      <ion-option value="qrService_9">Product 9</ion-option>
+		      <ion-option value="qrService_10">Product 10</ion-option>
+		    </ion-select>
+		</ion-item>
+
+		<!-- Hidden Lead Ranking -->
+		<ion-item style="display: none;">
+		    <ion-label stacked>Lead Rank:</ion-label>
+		    <ion-select [(ngModel)]="form.qrLeadRank[0]">
+		      <ion-option value="qrLeadRank_1">Hot</ion-option>
+		      <ion-option value="qrLeadRank_2">Warm</ion-option>
+		      <ion-option value="qrLeadRank_3">Cold</ion-option>			      
+		    </ion-select>
+		</ion-item>
+
+
+		<button style="margin-top: 20px;" type="submit" block [disabled]="!surveyForm.valid || submitted" company>{{submitted ? 'Thank You!' : 'Submit'}}</button>
+	</form>    
+  </ion-card-content>
+</ion-card>
+
